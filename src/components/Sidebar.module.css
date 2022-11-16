@@ -1,0 +1,17 @@
+.sidebar {
+    background-color: var(--secondary-background-color);
+    box-shadow: 0.25rem 0 0.5rem -0.25rem rgba(0, 0, 0, 0.7);
+    width: fit-content;
+    padding: 2rem 0.5rem;
+    max-width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 2;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    flex: 1;
+}
