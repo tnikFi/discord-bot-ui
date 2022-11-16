@@ -13,7 +13,7 @@ const Sidebar = () => {
         <aside className={styles.sidebar}>
             <nav>
                 <ul>
-                    {sidebarLinks.map((link, index) => (<li><SidebarButton key={link.label} icon={link.icon} label={link.label} /></li>))}
+                    {sidebarLinks.map((link, index) => (<li key={link.label}><SidebarButton icon={link.icon} label={link.label} /></li>))}
                 </ul>
             </nav>
             <hr style={{width: '100%'}}/>

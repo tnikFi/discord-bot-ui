@@ -15,3 +15,9 @@
     padding: 0;
     flex: 1;
 }
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        max-width: 90vw;
+    }
+}
