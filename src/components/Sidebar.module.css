@@ -1,8 +1,7 @@
 .sidebar {
     background-color: var(--secondary-background-color);
-    box-shadow: 0.25rem 0 0.5rem -0.25rem rgba(0, 0, 0, 0.7);
     width: fit-content;
-    max-width: 20vw;
+    max-width: 22vw;
     display: flex;
     flex-flow: column nowrap;
     justify-content: start;
