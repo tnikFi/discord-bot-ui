@@ -2,6 +2,8 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: left;
+    position: sticky;
+    top: 0;
     align-items: center;
     padding: 1rem 1rem;
     gap: 2rem;
@@ -11,6 +13,19 @@
 .logo {
     max-width: 3rem;
     align-self: center;
+}
+
+.mobileMenuButton {
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: transparent;
+    font-size: 100%;
+    text-align: center;
+}
+
+.mobileMenuButton span {
+    vertical-align: middle;
 }
 
 .header h1 {

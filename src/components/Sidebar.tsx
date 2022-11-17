@@ -1,9 +1,12 @@
 import { Box } from '@mui/material';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { MobileMenuContext } from '../App';
 import styles from './Sidebar.module.css';
 import SidebarButton from './SidebarButton';
 
 const Sidebar = () => {
+    const { mobileMenuOpen, setMobileMenuOpen } = useContext(MobileMenuContext)
+
     const sidebarLinks = [
         {icon: 'team_dashboard', label: 'Dashboard'},
         {icon: 'settings', label: 'Settings'},
@@ -11,7 +14,7 @@ const Sidebar = () => {
     ]
 
     return (
-        <div className={styles.sidebar}>
+        <div className={`${styles.sidebar} ${mobileMenuOpen ? styles.hidden : ''}`} >
             <nav>
                 <ul>
                     {sidebarLinks.map((link, index) => (<li key={link.label}><SidebarButton icon={link.icon} label={link.label} /></li>))}

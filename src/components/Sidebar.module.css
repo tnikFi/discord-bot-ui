@@ -23,10 +23,23 @@
 
 @media screen and (max-width: 480px) {
     .sidebar {
-        max-width: 90vw;
-        min-width: 70vw;
+        position: fixed;
         overflow-y: scroll;
         overflow-x: hidden;
         padding: 1rem;
+        margin-right: -90vw;
+        transition: transform 250ms cubic-bezier(.4,0,.3,1);
+        height: inherit;
+        width: 70vw;
+    }
+
+    .sidebar p {
+        word-wrap: normal;
+        width: inherit;
+    }
+
+    .hidden {
+        transform: translateX(-100%);
+        
     }
 }
