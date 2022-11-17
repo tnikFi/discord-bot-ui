@@ -11,7 +11,7 @@ const Sidebar = () => {
     ]
 
     return (
-        <Box className={styles.sidebar} sx={{ flexDirection: { sx: 'row', md: 'column' }, height: '100%', padding: '0 2em' }}>
+        <div className={styles.sidebar}>
             <nav>
                 <ul>
                     {sidebarLinks.map((link, index) => (<li key={link.label}><SidebarButton icon={link.icon} label={link.label} /></li>))}
@@ -19,7 +19,7 @@ const Sidebar = () => {
             </nav>
             <hr style={{width: '100%'}}/>
             <p>This is an unfinished project with a goal to create a Discord bot with an easy-to-use control panel</p>
-        </Box>
+        </div>
     );
 };
 

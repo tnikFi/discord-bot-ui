@@ -1,11 +1,14 @@
 .sidebar {
     background-color: var(--secondary-background-color);
-    width: fit-content;
+    min-width: fit-content;
     max-width: 22vw;
     display: flex;
     flex-flow: column nowrap;
     justify-content: start;
     align-items: flex-start;
+    height: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
 }
 
 .sidebar nav {
@@ -18,8 +21,12 @@
     padding: 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
     .sidebar {
         max-width: 90vw;
+        min-width: 70vw;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding: 1rem;
     }
 }
