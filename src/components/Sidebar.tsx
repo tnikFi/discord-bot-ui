@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import React from 'react';
 import styles from './Sidebar.module.css';
 import SidebarButton from './SidebarButton';
@@ -10,7 +11,7 @@ const Sidebar = () => {
     ]
 
     return (
-        <aside className={styles.sidebar}>
+        <Box className={styles.sidebar} sx={{ flexDirection: { sx: 'row', md: 'column' }, height: '100%' }}>
             <nav>
                 <ul>
                     {sidebarLinks.map((link, index) => (<li key={link.label}><SidebarButton icon={link.icon} label={link.label} /></li>))}
@@ -18,7 +19,7 @@ const Sidebar = () => {
             </nav>
             <hr style={{width: '100%'}}/>
             <p>This is an unfinished project with a goal to create a Discord bot with an easy-to-use control panel</p>
-        </aside>
+        </Box>
     );
 };
 
