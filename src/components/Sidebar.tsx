@@ -11,7 +11,7 @@ const Sidebar = () => {
     ]
 
     return (
-        <Box className={styles.sidebar} sx={{ flexDirection: { sx: 'row', md: 'column' }, height: '100%' }}>
+        <Box className={styles.sidebar} sx={{ flexDirection: { sx: 'row', md: 'column' }, height: '100%', padding: '0 2em' }}>
             <nav>
                 <ul>
                     {sidebarLinks.map((link, index) => (<li key={link.label}><SidebarButton icon={link.icon} label={link.label} /></li>))}
