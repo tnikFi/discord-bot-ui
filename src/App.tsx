@@ -20,17 +20,6 @@ const MobileMenuContext = React.createContext({ mobileMenuOpen: false, setMobile
 const drawerWidth = 240
 
 function App() {
-  const [useMobileMenu, setUseMobileMenu] = React.useState(window.innerWidth < constants.mobileMenuWidth)
-
-  const updateMedia = () => {
-    setUseMobileMenu(window.innerWidth < constants.mobileMenuWidth)
-  }
-
-  React.useEffect(() => {
-    window.addEventListener('resize', updateMedia)
-    return () => window.removeEventListener('resize', updateMedia)
-  })
-
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const theme = React.useMemo(
     () =>

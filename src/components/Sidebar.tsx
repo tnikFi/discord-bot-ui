@@ -1,54 +1,51 @@
 import { Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import DrawerContent from './DrawerContent';
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 import ReceiptLongOutlinedIcon from '@mui/icons-material/ReceiptLongOutlined';
 import constants from '../constants';
 
-const Sidebar = () => {
+const Sidebar = ({ mobileOpen, handleDrawerToggle }: { mobileOpen: boolean, handleDrawerToggle: React.MouseEventHandler<HTMLElement> }) => {
+    const container = window !== undefined ? () => document.body : undefined;
     return (
-        <Drawer
-            variant="permanent"
-            sx={{
-                width: constants.drawerWidth,
-                flexShrink: 0,
-                [`& .MuiDrawer-paper`]: {
-                    width: constants.drawerWidth,
-                    boxSizing: 'border-box',
-                },
-            }}
+        <Box
+            component="nav"
+            sx={{ width: { sm: constants.drawerWidth }, flexShrink: { sm: 0 } }}
+            aria-label="navigation"
         >
-            <Toolbar />
-            <Box sx={{ overflow: 'auto' }}>
-                <List>
-                    <ListItem key="dashboard" disablePadding>
-                        <ListItemButton component={RouterLink} to="/dashboard">
-                            <ListItemIcon>
-                                <DashboardOutlinedIcon />
-                            </ListItemIcon>
-                            <ListItemText primary='Dashboard' />
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem key="settings" disablePadding>
-                        <ListItemButton component={RouterLink} to="/settings">
-                            <ListItemIcon>
-                                <SettingsOutlinedIcon />
-                            </ListItemIcon>
-                            <ListItemText primary='Settings' />
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem key="logs" disablePadding>
-                        <ListItemButton component={RouterLink} to="/logs">
-                            <ListItemIcon>
-                                <ReceiptLongOutlinedIcon />
-                            </ListItemIcon>
-                            <ListItemText primary='Logs' />
-                        </ListItemButton>
-                    </ListItem>
-                </List>
-                <Divider />
-            </Box>
-        </Drawer>
+            <Drawer
+                variant="permanent"
+                sx={{
+                    display: { xs: 'none', sm: 'block' },
+                    width: constants.drawerWidth,
+                    flexShrink: 0,
+                    [`& .MuiDrawer-paper`]: {
+                        width: constants.drawerWidth,
+                        boxSizing: 'border-box',
+                    },
+                }}
+            >
+                <Toolbar />
+                <DrawerContent />
+            </Drawer>
+            <Drawer
+                container={container}
+                variant="temporary"
+                open={mobileOpen}
+                onClose={handleDrawerToggle}
+                ModalProps={{
+                    keepMounted: true, // Better open performance on mobile.
+                }}
+                sx={{
+                    display: { xs: 'block', sm: 'none' },
+                    '& .MuiDrawer-paper': { boxSizing: 'border-box', width: constants.drawerWidth },
+                }}
+            >
+                <Toolbar />
+                <DrawerContent />
+            </Drawer>
+        </Box>
     );
 };
 
