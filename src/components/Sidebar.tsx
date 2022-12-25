@@ -1,29 +1,50 @@
-import { Box } from '@mui/material';
-import React, { useContext, useEffect } from 'react';
-import { MobileMenuContext } from '../App';
-import styles from './Sidebar.module.css';
-import SidebarButton from './SidebarButton';
+import { Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
+import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined'
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
+import ReceiptLongOutlinedIcon from '@mui/icons-material/ReceiptLongOutlined';
+import drawerWidth from '../constants';
 
 const Sidebar = () => {
-    const { mobileMenuOpen, setMobileMenuOpen } = useContext(MobileMenuContext)
-
-    const sidebarLinks = [
-        {icon: 'team_dashboard', label: 'Dashboard'},
-        {icon: 'settings', label: 'Settings'},
-        {icon: 'history_edu', label: 'Logs'}
-    ]
-
-    return (
-        <div className={`${styles.sidebar} ${mobileMenuOpen ? styles.hidden : ''}`} >
-            <nav>
-                <ul>
-                    {sidebarLinks.map((link, index) => (<li key={link.label}><SidebarButton icon={link.icon} label={link.label} /></li>))}
-                </ul>
-            </nav>
-            <hr style={{width: '100%'}}/>
-            <p>This is an unfinished project with a goal to create a Discord bot with an easy-to-use control panel</p>
-        </div>
-    );
+    return <Drawer
+        variant="permanent"
+        sx={{
+            width: drawerWidth,
+            flexShrink: 0,
+            [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+        }}
+    >
+        <Toolbar />
+        <Box sx={{ overflow: 'auto' }}>
+            <List>
+                <ListItem disablePadding>
+                    <ListItemButton component={RouterLink} to="/dashboard">
+                        <ListItemIcon>
+                            <DashboardOutlinedIcon />
+                        </ListItemIcon>
+                        <ListItemText primary='Dashboard' />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton component={RouterLink} to="/settings">
+                        <ListItemIcon>
+                            <SettingsOutlinedIcon />
+                        </ListItemIcon>
+                        <ListItemText primary='Settings' />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton component={RouterLink} to="/logs">
+                        <ListItemIcon>
+                            <ReceiptLongOutlinedIcon />
+                        </ListItemIcon>
+                        <ListItemText primary='Logs' />
+                    </ListItemButton>
+                </ListItem>
+            </List>
+            <Divider />
+        </Box>
+    </Drawer>
 };
 
 export default Sidebar;

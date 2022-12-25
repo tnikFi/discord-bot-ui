@@ -1,5 +1,6 @@
 const constants = {
-  mobileMenuWidth: 480
+  mobileMenuWidth: 480,
+  drawerWidth: 240,
 }
 
 export default constants
