@@ -14,11 +14,11 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }: { mobileOpen: boolean, hand
                 variant="permanent"
                 sx={{
                     display: { xs: 'none', sm: 'block' },
-                    width: constants.drawerWidth,
                     flexShrink: 0,
                     [`& .MuiDrawer-paper`]: {
                         width: constants.drawerWidth,
                         boxSizing: 'border-box',
+                        overflowX: 'hidden',
                     },
                 }}
             >
