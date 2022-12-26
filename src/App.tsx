@@ -10,8 +10,10 @@ import './App.css'
 import Sidebar from './components/Sidebar'
 import constants from './constants'
 import Layout from './Layout'
+import Index from './pages/Index'
+import NotFound from './pages/NotFound'
 import Dashboard from './pages/panel/Dashboard'
-import NotFound from './pages/panel/NotFound'
+import PanelNotFound from './pages/panel/NotFound'
 import Settings from './pages/panel/Settings'
 
 const MobileContext = React.createContext(false)
@@ -38,10 +40,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Routes>
+        <Route index element={<Index />} />
         <Route path='panel' element={<Layout />}>
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='settings' element={<Settings />} />
-          <Route path='*' element={<NotFound />} />
+          <Route path='*' element={<PanelNotFound />} />
         </Route>
         <Route path='*' element={<NotFound />} />
       </Routes>
