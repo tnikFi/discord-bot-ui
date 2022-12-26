@@ -1,29 +1,29 @@
-import { Box, Drawer, Grid, Toolbar } from '@mui/material';
+import { Box, Drawer, Grid, SwipeableDrawer, Toolbar } from '@mui/material';
 import DrawerContent from './DrawerRoutes';
 import constants from '../constants';
-import GuildList from './GuildList';
+import { SyntheticEvent } from 'react';
 
 const testGuilds = [
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 1 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 2 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 3 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 4 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 5 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 6 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 7 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 8 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 9 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 10 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 11 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 12 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 13 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 14 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 15 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 16 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 17 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 18 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 19 },
-    { icon: 'https://dummyimage.com/256x256.png', guildId: 20 },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 1, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 2, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 3, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 4, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 5, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 6, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 7, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 8, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 9, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 10, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 11, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 12, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 13, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 14, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 15, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 16, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 17, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 18, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 19, name: 'test' },
+    { icon: 'https://dummyimage.com/256x256.png', guildId: 20, name: 'test' },
 ]
 
 const Sidebar = ({ mobileOpen, handleDrawerToggle }: { mobileOpen: boolean, handleDrawerToggle: React.MouseEventHandler<HTMLElement> }) => {
@@ -47,17 +47,13 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }: { mobileOpen: boolean, hand
                 }}
             >
                 <Toolbar />
-                <Grid container columns={2} overflow={'hidden'} height='100%'>
-                    <GuildList guilds={testGuilds}/>
-                    <DrawerContent />
-                </Grid>
-
-
+                <DrawerContent />
             </Drawer>
-            <Drawer
+            <SwipeableDrawer
                 container={container}
                 variant="temporary"
                 open={mobileOpen}
+                onOpen={handleDrawerToggle}
                 onClose={handleDrawerToggle}
                 ModalProps={{
                     keepMounted: true, // Better open performance on mobile.
@@ -68,11 +64,8 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }: { mobileOpen: boolean, hand
                 }}
             >
                 <Toolbar />
-                <Grid container columns={2} overflow={'hidden'} height='100%'>
-                    <GuildList guilds={testGuilds} />
-                    <DrawerContent />
-                </Grid>
-            </Drawer>
+                <DrawerContent />
+            </SwipeableDrawer>
         </Box>
     );
 };

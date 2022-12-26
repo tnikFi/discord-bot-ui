@@ -6,14 +6,12 @@ import ReceiptLongOutlinedIcon from '@mui/icons-material/ReceiptLongOutlined';
 
 import constants from '../constants';
 
-const GUILD_PADDING = constants.guildListPadding;
 const DRAWER_WIDTH = constants.drawerWidth;
-const GUILD_SIZE = constants.guildListWidth;
 
 
 const Content = () => {
     return (
-        <Box sx={{ overflowY: 'auto', overflowX: 'hidden', width: DRAWER_WIDTH-GUILD_SIZE-2*GUILD_PADDING-3, maxHeight: 1 }}>
+        <Box sx={{ overflowY: 'auto', overflowX: 'hidden', width: DRAWER_WIDTH}}>
             <List>
                 <ListItem key="dashboard" disablePadding>
                     <ListItemButton component={RouterLink} to="/dashboard">

@@ -14,7 +14,6 @@ const Layout = () => {
   
     return (
         <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
             <Header handleDrawerToggle={handleDrawerToggle} />
             <Sidebar mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
             <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
