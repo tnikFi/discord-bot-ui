@@ -40,8 +40,7 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='settings' element={<Settings />} />
-          <Route path='storage' element={<NotFound />} />
-          <Route path='logs' element={<NotFound />} />
+          <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
     </ThemeProvider>
