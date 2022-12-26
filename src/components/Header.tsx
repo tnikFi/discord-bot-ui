@@ -25,6 +25,10 @@ const Header = ({ handleDrawerToggle }: { handleDrawerToggle: React.MouseEventHa
         setAnchorElUser(null);
     };
 
+    const handleLogout = () => {
+        window.open('/', '_self');
+    };
+
     return (
         <AppBar position='fixed' color='primary' sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
             <Toolbar>
@@ -62,7 +66,7 @@ const Header = ({ handleDrawerToggle }: { handleDrawerToggle: React.MouseEventHa
                         open={Boolean(anchorElUser)}
                         onClose={handleCloseUserMenu}
                     >
-                        <MenuItem onClick={handleCloseUserMenu}>
+                        <MenuItem onClick={handleLogout}>
                             <Typography variant='body1' sx={{ flexGrow: 1 }}>
                                 Logout
                             </Typography>
