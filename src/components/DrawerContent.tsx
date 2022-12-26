@@ -10,6 +10,7 @@ import StorageIcon from '@mui/icons-material/StorageOutlined';
 import GuildList from './GuildList'
 import { Guild } from './GuildList'
 import React from 'react'
+import Status from './Status'
 
 const testGuilds: Guild[] = [
     { icon: 'https://dummyimage.com/256x256.png', id: 1, name: 'test 1' },
@@ -60,6 +61,8 @@ const routes: Route[] = [
 const DrawerContent = () => {
     return (
         <Box sx={{ overflowY: 'auto', overflowX: 'hidden', width: constants.drawerWidth }}>
+            <Status />
+            <Divider />
             <RouteList routes={routes} />
             <Divider />
             <GuildList guilds={testGuilds} />
