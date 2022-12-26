@@ -1,9 +1,5 @@
-import { Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
-import DrawerContent from './DrawerContent';
-import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined'
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
-import ReceiptLongOutlinedIcon from '@mui/icons-material/ReceiptLongOutlined';
+import { Box, Drawer, Grid, Toolbar } from '@mui/material';
+import DrawerContent from './DrawerRoutes';
 import constants from '../constants';
 
 const Sidebar = ({ mobileOpen, handleDrawerToggle }: { mobileOpen: boolean, handleDrawerToggle: React.MouseEventHandler<HTMLElement> }) => {
@@ -27,7 +23,16 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }: { mobileOpen: boolean, hand
                 }}
             >
                 <Toolbar />
-                <DrawerContent />
+                <Grid container columns={2}>
+                    <div>
+                        <div>a</div>
+                        <div>b</div>
+                        <div>c</div>
+                    </div>
+                    <DrawerContent />
+                </Grid>
+
+
             </Drawer>
             <Drawer
                 container={container}
