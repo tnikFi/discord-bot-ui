@@ -15,14 +15,20 @@ const Layout = () => {
   const outlet = useOutlet();
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <Header handleDrawerToggle={handleDrawerToggle} />
-      <Sidebar mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <Toolbar />
-        {outlet || <Navigate to={{pathname: 'dashboard', search: location.search}} />}
-      </Box>
-    </Box>
+    <>
+      {
+        true  // TODO: Replace with auth check
+          ? <Box sx={{ display: 'flex' }}>
+            <Header handleDrawerToggle={handleDrawerToggle} />
+            <Sidebar mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
+            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+              <Toolbar />
+              {outlet || <Navigate to={{ pathname: 'dashboard', search: location.search }} />}
+            </Box>
+          </Box>
+          : outlet || <Navigate to={{ pathname: '/login' }} />
+      }
+    </>
   );
 };
 
