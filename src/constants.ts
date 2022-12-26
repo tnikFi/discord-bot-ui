@@ -1,5 +1,7 @@
 const constants = {
-  drawerWidth: 240,
+  guildListPadding: 8,
+  guildListWidth: 70,
+  drawerWidth: 300,
 };
 
 export default constants;
