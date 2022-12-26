@@ -10,7 +10,7 @@ const degradedThreshold = 1000
 const Status = () => {
     return (
         <ListItem>
-            <Tooltip title={`${ping} ms`}>
+            <Tooltip title={ping ? `${ping} ms` : 'The bot is not responding'}>
                 <ListItemIcon>
                     <AdjustOutlinedIcon color={ping ? ping < degradedThreshold ? 'success' : 'warning' : 'error'} />
                 </ListItemIcon>
