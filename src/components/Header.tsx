@@ -6,8 +6,11 @@ import { ThemeProvider } from '@emotion/react';
 import { Stack, AppBar, Toolbar, Typography, Box, IconButton } from '@mui/material';
 import Sidebar from './Sidebar';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useLocation } from 'react-router-dom';
 
 const Header = ({ handleDrawerToggle }: { handleDrawerToggle: React.MouseEventHandler }) => {
+    let location = useLocation();
+    let locationName = location.pathname[1].toUpperCase() + location.pathname.slice(2);
     return (
         <AppBar position='fixed' color='primary' sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
             <Toolbar>
@@ -21,7 +24,7 @@ const Header = ({ handleDrawerToggle }: { handleDrawerToggle: React.MouseEventHa
                     <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" noWrap component="div">
-                    Dashboard
+                    {locationName}
                 </Typography>
             </Toolbar>
         </AppBar>
