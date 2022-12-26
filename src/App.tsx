@@ -10,9 +10,9 @@ import './App.css'
 import Sidebar from './components/Sidebar'
 import constants from './constants'
 import Layout from './Layout'
-import Dashboard from './pages/Dashboard'
-import NotFound from './pages/NotFound'
-import Settings from './pages/Settings'
+import Dashboard from './pages/panel/Dashboard'
+import NotFound from './pages/panel/NotFound'
+import Settings from './pages/panel/Settings'
 
 const MobileContext = React.createContext(false)
 const MobileMenuContext = React.createContext({ mobileMenuOpen: false, setMobileMenuOpen: (mobileMenuOpen: boolean) => { } })
