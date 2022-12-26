@@ -3,6 +3,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import React from 'react'
+import { useSearchParams } from 'react-router-dom';
 
 interface Guild {
     id: number,
@@ -12,7 +13,9 @@ interface Guild {
 
 const GuildList = ({ guilds }: { guilds: Guild[] }) => {
     const [open, setOpen] = React.useState(false)
-    const [selectedGuild, setSelectedGuild] = React.useState<Guild | undefined>(guilds[0])
+    const [searchParams, setSearchParams] = useSearchParams()
+    console.log(`guild id is ${searchParams.get('guild')}`)
+    const [selectedGuild, setSelectedGuild] = React.useState<Guild | undefined>(guilds.find(guild => guild.id.toString() === searchParams.get('guild')))
 
     const handleClick = () => {
         setOpen(!open)
@@ -20,6 +23,7 @@ const GuildList = ({ guilds }: { guilds: Guild[] }) => {
 
     const handleGuildClick = (guild: Guild) => {
         setSelectedGuild(guild)
+        setSearchParams({ guild: guild.id.toString() })
     }
 
     return (

@@ -5,7 +5,7 @@ import {
 } from '@mui/material'
 
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useParams, useLocation, useSearchParams } from 'react-router-dom'
 import './App.css'
 import Sidebar from './components/Sidebar'
 import constants from './constants'
@@ -31,18 +31,19 @@ function App() {
     [prefersDarkMode],
   );
 
+  const [searchParams, setSearchParams] = useSearchParams()
+  console.log(searchParams.get('guild'))
+
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Layout />}>
-            <Route path='dashboard' element={<Dashboard />} />
-            <Route path='settings' element={<Settings />} />
-            <Route path='storage' element={<NotFound />} />
-            <Route path='logs' element={<NotFound />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route path='dashboard' element={<Dashboard />} />
+          <Route path='settings' element={<Settings />} />
+          <Route path='storage' element={<NotFound />} />
+          <Route path='logs' element={<NotFound />} />
+        </Route>
+      </Routes>
     </ThemeProvider>
   )
 }

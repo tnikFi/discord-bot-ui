@@ -8,11 +8,18 @@ interface Route {
 }
 
 const RouteList = ({ routes }: { routes: Array<Route> }) => {
+    console.log(location.search)
     return (
         <List>
             {routes.map((route) => (
                 <ListItem key={route.name} disablePadding>
-                    <ListItemButton component={RouterLink} to={route.path}>
+                    <ListItemButton
+                        component={RouterLink}
+                        to={{
+                            pathname: route.path,
+                            search: location.search
+                        }}
+                    >
                         <ListItemIcon>
                             {route.icon}
                         </ListItemIcon>

@@ -12,8 +12,8 @@ import { Guild } from './GuildList'
 import React from 'react'
 
 const testGuilds: Guild[] = [
-    { icon: 'https://dummyimage.com/256x256.png', id: 2, name: 'test 1' },
-    { icon: 'https://dummyimage.com/256x256.png', id: 1, name: 'test 2' },
+    { icon: 'https://dummyimage.com/256x256.png', id: 1, name: 'test 1' },
+    { icon: 'https://dummyimage.com/256x256.png', id: 2, name: 'test 2' },
     { icon: 'https://dummyimage.com/256x256.png', id: 3, name: 'test 3' },
     { icon: 'https://dummyimage.com/256x256.png', id: 4, name: 'test 4' },
     { icon: 'https://dummyimage.com/256x256.png', id: 5, name: 'test 5' },
