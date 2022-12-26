@@ -2,7 +2,7 @@ import { Avatar, Collapse, List, ListItemAvatar, ListItemButton, ListItemIcon, L
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom';
 
 interface Guild {
@@ -15,7 +15,15 @@ const GuildList = ({ guilds }: { guilds: Guild[] }) => {
     const [open, setOpen] = React.useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
     console.log(`guild id is ${searchParams.get('guild')}`)
-    const [selectedGuild, setSelectedGuild] = React.useState<Guild | undefined>(guilds.find(guild => guild.id.toString() === searchParams.get('guild')))
+    const [selectedGuild, setSelectedGuild] = React.useState<Guild | undefined>(
+        guilds.find(guild => guild.id.toString() === searchParams.get('guild')) || guilds[0]
+    )
+
+    useEffect(() => {
+        if (selectedGuild) {
+            setSearchParams({ guild: selectedGuild.id.toString() })
+        }
+    }, [selectedGuild])
 
     const handleClick = () => {
         setOpen(!open)
