@@ -1,7 +1,6 @@
-import { Box, Drawer, Grid, SwipeableDrawer, Toolbar } from '@mui/material';
-import DrawerContent from './DrawerRoutes';
+import { Box, Drawer, SwipeableDrawer, Toolbar } from '@mui/material';
+import DrawerContent from './DrawerContent';
 import constants from '../constants';
-import { SyntheticEvent } from 'react';
 
 const testGuilds = [
     { icon: 'https://dummyimage.com/256x256.png', guildId: 1, name: 'test' },
