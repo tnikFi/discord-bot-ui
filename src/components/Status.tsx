@@ -3,7 +3,7 @@ import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, Tooltip } f
 
 // Placeholder for now. Eventually this will be a component that checks the response
 // time of the bot and displays the status accordingly.
-const ping = 1000
+const ping = null
 
 const degradedThreshold = 1000
 
