@@ -12,8 +12,11 @@ const Header = ({ handleDrawerToggle }: { handleDrawerToggle: React.MouseEventHa
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
     let location = useLocation();
-    let locationName = location.pathname[1].toUpperCase() + location.pathname.slice(2);
-
+    let pathname = location.pathname;
+    let locationName = undefined;
+    if (pathname.split('/')[2]) {
+        locationName = pathname.split('/')[2][0].toUpperCase() + pathname.split('/')[2].slice(1);
+    }
     const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
         setAnchorElUser(event.currentTarget);
     };

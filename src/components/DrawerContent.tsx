@@ -37,22 +37,22 @@ const testGuilds: Guild[] = [
 
 const routes: Route[] = [
     {
-        path: '/dashboard',
+        path: 'dashboard',
         name: 'Dashboard',
         icon: <DashboardOutlinedIcon />
     },
     {
-        path: '/settings',
+        path: 'settings',
         name: 'Settings',
         icon: <SettingsOutlinedIcon />
     },
     {
-        path: '/storage',
+        path: 'storage',
         name: 'Storage',
         icon: <StorageIcon />
     },
     {
-        path: '/logs',
+        path: 'logs',
         name: 'Logs',
         icon: <ReceiptLongOutlinedIcon />
     }

@@ -33,15 +33,17 @@ function App() {
 
   const [searchParams, setSearchParams] = useSearchParams()
   console.log(searchParams.get('guild'))
-
+  
+  // If route is /panel, redirect to /panel/dashboard
   return (
     <ThemeProvider theme={theme}>
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route path='panel' element={<Layout />}>
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='settings' element={<Settings />} />
           <Route path='*' element={<NotFound />} />
         </Route>
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </ThemeProvider>
   )
