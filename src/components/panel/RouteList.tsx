@@ -8,7 +8,6 @@ interface Route {
 }
 
 const RouteList = ({ routes }: { routes: Array<Route> }) => {
-    console.log(location.search)
     return (
         <List>
             {routes.map((route) => (

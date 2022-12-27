@@ -14,7 +14,6 @@ interface Guild {
 const GuildList = ({ guilds }: { guilds: Guild[] }) => {
     const [open, setOpen] = React.useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
-    console.log(`guild id is ${searchParams.get('guild')}`)
     const [selectedGuild, setSelectedGuild] = React.useState<Guild | undefined>(
         guilds.find(guild => guild.id.toString() === searchParams.get('guild')) || guilds[0]
     )
