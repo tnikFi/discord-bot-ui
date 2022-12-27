@@ -1,6 +1,6 @@
 import { Box, Drawer, SwipeableDrawer, Toolbar } from '@mui/material';
 import DrawerContent from './DrawerContent';
-import constants from '../constants';
+import constants from '../../constants';
 
 const Sidebar = ({ mobileOpen, handleDrawerToggle }: { mobileOpen: boolean, handleDrawerToggle: React.MouseEventHandler<HTMLElement> }) => {
     const container = window !== undefined ? () => document.body : undefined;

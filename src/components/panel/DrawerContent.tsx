@@ -1,5 +1,5 @@
 import { Box, Divider } from '@mui/material'
-import constants from '../constants'
+import constants from '../../constants'
 import RouteList from './RouteList'
 import { Route } from './RouteList'
 

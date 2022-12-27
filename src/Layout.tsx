@@ -2,8 +2,8 @@ import { AppBar, CssBaseline, Divider, Drawer, List, ListItem, ListItemButton, L
 import Box from "@mui/material/Box";
 import React from "react";
 import { Navigate, Outlet, useOutlet } from "react-router-dom";
-import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
+import Header from "./components/panel/Header";
+import Sidebar from "./components/panel/Sidebar";
 
 const Layout = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
