@@ -7,7 +7,6 @@ import {
 import React from 'react'
 import { BrowserRouter, Routes, Route, useParams, useLocation, useSearchParams } from 'react-router-dom'
 import './App.css'
-import Sidebar from './components/Sidebar'
 import constants from './constants'
 import Layout from './Layout'
 import Index from './pages/Index'
@@ -15,6 +14,7 @@ import NotFound from './pages/NotFound'
 import Dashboard from './pages/panel/Dashboard'
 import PanelNotFound from './pages/panel/NotFound'
 import Settings from './pages/panel/Settings'
+import Storage from './pages/panel/Storage'
 
 const MobileContext = React.createContext(false)
 const MobileMenuContext = React.createContext({ mobileMenuOpen: false, setMobileMenuOpen: (mobileMenuOpen: boolean) => { } })
@@ -34,7 +34,6 @@ function App() {
   );
 
   const [searchParams, setSearchParams] = useSearchParams()
-  console.log(searchParams.get('guild'))
   
   // If route is /panel, redirect to /panel/dashboard
   return (
@@ -44,6 +43,7 @@ function App() {
         <Route path='panel' element={<Layout />}>
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='settings' element={<Settings />} />
+          <Route path='storage' element={<Storage />} />
           <Route path='*' element={<PanelNotFound />} />
         </Route>
         <Route path='*' element={<NotFound />} />
