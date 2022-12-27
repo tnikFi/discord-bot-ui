@@ -2,7 +2,7 @@ import { AppBar, CssBaseline, Divider, Drawer, List, ListItem, ListItemButton, L
 import Box from "@mui/material/Box";
 import React from "react";
 import { Navigate, Outlet, useOutlet } from "react-router-dom";
-import Header from "./components/panel/Header";
+import PanelAppBar from "./components/panel/PanelAppBar";
 import Sidebar from "./components/panel/Sidebar";
 
 const Layout = () => {
@@ -19,7 +19,7 @@ const Layout = () => {
       {
         true  // TODO: Replace with auth check
           ? <Box sx={{ display: 'flex' }}>
-            <Header handleDrawerToggle={handleDrawerToggle} />
+            <PanelAppBar handleDrawerToggle={handleDrawerToggle} />
             <Sidebar mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
             <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
               <Toolbar />

@@ -1,14 +1,13 @@
 import React, { MouseEvent, useContext } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Header.module.css';
-import { MobileContext, MobileMenuContext } from '../App';
 import { ThemeProvider } from '@emotion/react';
 import { Stack, AppBar, Toolbar, Typography, Box, IconButton, Tooltip, Avatar, Menu, MenuItem } from '@mui/material';
 import Sidebar from './Sidebar';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useLocation } from 'react-router-dom';
 
-const Header = ({ handleDrawerToggle }: { handleDrawerToggle: React.MouseEventHandler }) => {
+const PanelAppBar = ({ handleDrawerToggle }: { handleDrawerToggle: React.MouseEventHandler }) => {
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
     let location = useLocation();
@@ -78,8 +77,8 @@ const Header = ({ handleDrawerToggle }: { handleDrawerToggle: React.MouseEventHa
     );
 };
 
-Header.propTypes = {
+PanelAppBar.propTypes = {
     handleDrawerToggle: PropTypes.func.isRequired,
 };
 
-export default Header;
+export default PanelAppBar;
